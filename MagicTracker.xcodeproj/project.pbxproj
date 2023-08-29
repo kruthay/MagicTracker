@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931855332A9D0D440055157D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855322A9D0D440055157D /* Model.swift */; };
+		931855352A9D4BB40055157D /* TrackpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855342A9D4BB40055157D /* TrackpadView.swift */; };
+		931855372A9D61A20055157D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855362A9D61A20055157D /* HomeView.swift */; };
+		93A5284E2A9BFDB200BCEB38 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A5284D2A9BFDB200BCEB38 /* Client.swift */; };
 		93C9581A2A99455F00876095 /* MagicTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C958192A99455F00876095 /* MagicTrackerApp.swift */; };
 		93C9581C2A99455F00876095 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9581B2A99455F00876095 /* ContentView.swift */; };
 		93C9581E2A99456000876095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C9581D2A99456000876095 /* Assets.xcassets */; };
@@ -14,6 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		931855322A9D0D440055157D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		931855342A9D4BB40055157D /* TrackpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadView.swift; sourceTree = "<group>"; };
+		931855362A9D61A20055157D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		93A5284D2A9BFDB200BCEB38 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		93A528512A9C0B1F00BCEB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93C958162A99455F00876095 /* MagicTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C958192A99455F00876095 /* MagicTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTrackerApp.swift; sourceTree = "<group>"; };
 		93C9581B2A99455F00876095 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,8 +60,13 @@
 		93C958182A99455F00876095 /* MagicTracker */ = {
 			isa = PBXGroup;
 			children = (
+				93A528512A9C0B1F00BCEB38 /* Info.plist */,
 				93C958192A99455F00876095 /* MagicTrackerApp.swift */,
 				93C9581B2A99455F00876095 /* ContentView.swift */,
+				931855362A9D61A20055157D /* HomeView.swift */,
+				931855342A9D4BB40055157D /* TrackpadView.swift */,
+				93A5284D2A9BFDB200BCEB38 /* Client.swift */,
+				931855322A9D0D440055157D /* Model.swift */,
 				93C9581D2A99456000876095 /* Assets.xcassets */,
 				93C9581F2A99456000876095 /* Preview Content */,
 			);
@@ -95,7 +109,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					93C958152A99455F00876095 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -137,8 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A5284E2A9BFDB200BCEB38 /* Client.swift in Sources */,
+				931855352A9D4BB40055157D /* TrackpadView.swift in Sources */,
 				93C9581C2A99455F00876095 /* ContentView.swift in Sources */,
+				931855372A9D61A20055157D /* HomeView.swift in Sources */,
 				93C9581A2A99455F00876095 /* MagicTrackerApp.swift in Sources */,
+				931855332A9D0D440055157D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +199,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -241,6 +260,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -270,6 +290,7 @@
 				DEVELOPMENT_TEAM = 6Q95QLZS6W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +320,7 @@
 				DEVELOPMENT_TEAM = 6Q95QLZS6W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
