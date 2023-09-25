@@ -10,6 +10,7 @@
 		931855332A9D0D440055157D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855322A9D0D440055157D /* Model.swift */; };
 		931855352A9D4BB40055157D /* TrackpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855342A9D4BB40055157D /* TrackpadView.swift */; };
 		931855372A9D61A20055157D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855362A9D61A20055157D /* HomeView.swift */; };
+		9324B5F32AB7F12400C3429D /* GyroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324B5F22AB7F12400C3429D /* GyroView.swift */; };
 		93A5284E2A9BFDB200BCEB38 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A5284D2A9BFDB200BCEB38 /* Client.swift */; };
 		93C9581A2A99455F00876095 /* MagicTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C958192A99455F00876095 /* MagicTrackerApp.swift */; };
 		93C9581C2A99455F00876095 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9581B2A99455F00876095 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 		931855322A9D0D440055157D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		931855342A9D4BB40055157D /* TrackpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadView.swift; sourceTree = "<group>"; };
 		931855362A9D61A20055157D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9324B5F22AB7F12400C3429D /* GyroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroView.swift; sourceTree = "<group>"; };
 		93A5284D2A9BFDB200BCEB38 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		93A528512A9C0B1F00BCEB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93C958162A99455F00876095 /* MagicTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,7 @@
 				93C9581B2A99455F00876095 /* ContentView.swift */,
 				931855362A9D61A20055157D /* HomeView.swift */,
 				931855342A9D4BB40055157D /* TrackpadView.swift */,
+				9324B5F22AB7F12400C3429D /* GyroView.swift */,
 				93A5284D2A9BFDB200BCEB38 /* Client.swift */,
 				931855322A9D0D440055157D /* Model.swift */,
 				93C9581D2A99456000876095 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A5284E2A9BFDB200BCEB38 /* Client.swift in Sources */,
+				9324B5F32AB7F12400C3429D /* GyroView.swift in Sources */,
 				931855352A9D4BB40055157D /* TrackpadView.swift in Sources */,
 				93C9581C2A99455F00876095 /* ContentView.swift in Sources */,
 				931855372A9D61A20055157D /* HomeView.swift in Sources */,

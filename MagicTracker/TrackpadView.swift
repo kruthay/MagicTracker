@@ -12,20 +12,19 @@ struct TrackpadView: View {
     @State var points: [CGPoint] = []
     @State private var mousePosition: CGPoint = .zero
     @ObservedObject var model = Model()
-    @State var lastPoint : CGPoint = .zero
+    @State private var startPoint: CGPoint = .zero
 
     var body: some View {
 
 
         ZStack {
             GeometryReader { proxy in
-                Rectangle() // replace it with what you need
+                Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .gesture(DragGesture().onChanged( { value in
                         self.addNewPoint(value)
-//                        lastPoint = value.location
+
                         if let data = transformPoints(dragValue : value, environmentSize : proxy.size) {
-                            
                             if let client = model.client {
                                 client.send(movements: [data])
                             }
@@ -35,12 +34,17 @@ struct TrackpadView: View {
                         }
                     })
                         .onEnded( { value in
-                            // here you perform what you need at the end
                             self.points = []
-
-                            lastPoint.x = value.translation.width
-                            lastPoint.y = value.translation.height
+                            if let client = model.client {
+                                client.sendLastMovement()
+                            }
                         }))
+                    .onTapGesture {
+                        print("tapped")
+                        if let client = model.client {
+                            client.sendTapMovement()
+                        }
+                    }
                 
                 
                 DrawShape(points: points)
@@ -59,23 +63,12 @@ struct TrackpadView: View {
         points.append(value.location)
     }
     private func transformPoints(dragValue value : DragGesture.Value, environmentSize size: CGSize) -> Data? {
-        
-//        var point : CGSize = CGSize(width: value.location.x, height: value.location.y)
-        var point = value.location
-        print(point)
-        print(lastPoint)
-        point.x = lastPoint.x + value.translation.width
-        point.y = lastPoint.y + value.translation.height
-//        print(size)
-//        point.width = (-point.width + size.width / size.width )
-//        point.height = (-point.height + size.height / size.height)
-//        point = (size - point ) / size
-//
 
         
-//        let data = "\(point.width),\(point.height)".data(using: .utf8)
-          let data = "\(point.x),\(point.y)".data(using: .utf8)
+        let point = value.translation
         
+        let data = "\(point.width),\(point.height)".data(using: .utf8)
+        print(point)
         return data ?? nil
     }
     

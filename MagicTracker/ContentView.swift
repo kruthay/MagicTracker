@@ -15,16 +15,21 @@ struct ContentView: View {
     @ObservedObject var model = Model()
         var body: some View {
             VStack {
-                Text("Mouse X: \(Int(mousePosition.x)), Y: \(Int(mousePosition.y))")
-                    .padding()
-                Slider(value: $mousePosition.x, in: -UIScreen.main.bounds.width...UIScreen.main.bounds.width)
-                    .padding(.horizontal)
-                Slider(value: $mousePosition.y, in: -UIScreen.main.bounds.height...UIScreen.main.bounds.height)
-                    .padding(.horizontal)
-                Button("Start Browser") {
+                Spacer()
+                Button("Restart Browser") {
                     model.startStopBrowser()
                 }
                 Text(model.isBrowserStarted ? "Yes" : "No")
+                Text("Mouse X: \(Int(mousePosition.x)), Y: \(Int(mousePosition.y))")
+                    
+                    Slider(value: $mousePosition.x, in: -UIScreen.main.bounds.width...UIScreen.main.bounds.width)
+                        .padding(.horizontal)
+                    Spacer()
+                    Slider(value: $mousePosition.y, in: -UIScreen.main.bounds.height...UIScreen.main.bounds.height)
+                        .padding(.horizontal)
+                        .rotationEffect(.degrees(90.0))
+                        
+                    Spacer()
             }
             .onChange(of: mousePosition){ position in
                 let data = "\(position.x),\(position.y)".data(using: .utf8)

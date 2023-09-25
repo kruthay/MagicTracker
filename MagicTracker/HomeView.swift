@@ -12,6 +12,7 @@ struct HomeView: View {
         NavigationStack {
             NavigationLink( "TrackPad ", destination: TrackpadView())
             NavigationLink( "Content ", destination: ContentView())
+            NavigationLink("Gyro",destination: GyroView())
         }
     }
 }

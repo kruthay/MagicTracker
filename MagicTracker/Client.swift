@@ -72,4 +72,22 @@ class Client : ObservableObject {
             }
         }
     }
+    func sendLastMovement() {
+        let liftedMessage = "lifted".data(using: .utf8)
+        connection.send(content: liftedMessage, completion: .contentProcessed({ error in
+            if let error = error {
+                print("Send error \(error)")
+            }
+            
+        }))
+    }
+    func sendTapMovement() {
+        let liftedMessage = "tapped".data(using: .utf8)
+        connection.send(content: liftedMessage, completion: .contentProcessed({ error in
+            if let error = error {
+                print("Send error \(error)")
+            }
+            
+        }))
+    }
 }
