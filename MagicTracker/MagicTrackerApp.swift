@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct MagicTrackerApp: App {
+    @StateObject var model = Model()
     var body: some Scene {
         WindowGroup {
             
             HomeView()
+                .environmentObject(model)
         }
     }
 }

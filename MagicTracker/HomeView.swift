@@ -8,12 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var model : Model
     var body: some View {
         NavigationStack {
-            NavigationLink( "TrackPad ", destination: TrackpadView())
-            NavigationLink( "Content ", destination: ContentView())
-            NavigationLink("Gyro",destination: GyroView())
+            
+            VStack {
+                ForEach(model.devicesFound.sorted(by: { $0.key < $1.key }), id: \.key) { key, value in
+                    Button(key) {
+                        model.connect(to: key)
+                    }
+                }
+            }
+            List {
+                NavigationLink( destination:TrackpadView()){
+                    Text("Mouse")
+                }
+            }
+
+            .toolbar {
+                if !model.isBrowserStarted {
+                    Button("Start Browser") {
+                        model.startBrowser()
+                    }
+                } else {
+                    Button("Stop Browser") {
+                        model.stopBrowser()
+                    }
+                }
+            }
         }
+        
     }
 }
 

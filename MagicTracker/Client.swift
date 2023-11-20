@@ -8,10 +8,9 @@
 import Foundation
 import Network
 
-class Client : ObservableObject {
+class Client {
     var connection: NWConnection
     var queue : DispatchQueue
-    @Published var message = ""
     init(endPoint : NWEndpoint) {
         queue = DispatchQueue(label:"Client Queue")
         connection = NWConnection(to : endPoint,using: .udp)
@@ -35,7 +34,6 @@ class Client : ObservableObject {
                 break
             }
         }
-        print("Before Connection Starts")
         connection.start(queue: queue)
     }
     deinit {
@@ -53,7 +51,6 @@ class Client : ObservableObject {
         connection.receive(minimumIncompleteLength: 1, maximumLength: 100 ) { (content, context, isComplete, error) in
             if content != nil {
                 print("Got Connected")
-                self.message = "Connected"
                 print("UI update")
             
             }
@@ -61,16 +58,12 @@ class Client : ObservableObject {
         }
     }
     
-    func send(movements : [Data]) {
-        connection.batch {
-            for movement in movements {
+    func send(movement : Data) {
                 connection.send(content: movement, completion: .contentProcessed({ error in
                     if let error = error {
                         print("Batch Send error \(error)")
                     }
                 }))
-            }
-        }
     }
     func sendLastMovement() {
         let liftedMessage = "lifted".data(using: .utf8)
@@ -81,8 +74,8 @@ class Client : ObservableObject {
             
         }))
     }
-    func sendTapMovement() {
-        let liftedMessage = "tapped".data(using: .utf8)
+    func sendTapMovement(message: String) {
+        let liftedMessage = message.data(using: .utf8)
         connection.send(content: liftedMessage, completion: .contentProcessed({ error in
             if let error = error {
                 print("Send error \(error)")
