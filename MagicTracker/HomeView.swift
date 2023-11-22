@@ -35,6 +35,13 @@ struct HomeView: View {
                         model.stopBrowser()
                     }
                 }
+                if let client = model.client {
+                    Button ("Stop Connection") {
+                        withAnimation {
+                            model.stopConnection()
+                        }
+                    }
+                }
             }
         }
         

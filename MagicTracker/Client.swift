@@ -18,13 +18,11 @@ class Client {
         connection.stateUpdateHandler = { (newState) in
             switch(newState) {
             case .ready:
-                print("Ready To Send")
-                self.sendInitialMovement()
+                self.send(message: "Ready To Send".data(using: .utf8)! )
             case .failed(let error):
                 print("Client failed \(error)")
             case .preparing:
                 print("Client preparing")
-                print("\(String(describing: self.connection.parameters))")
             case .setup:
                 print("Client setup")
             case .waiting(let error):
@@ -39,48 +37,18 @@ class Client {
     deinit {
         connection.cancel()
     }
-    func sendInitialMovement() {
-        let helloMessage = "hello".data(using: .utf8)
-        connection.send(content: helloMessage, completion: .contentProcessed({ error in
+        
+    func send(message movement: Data) {
+        connection.send(content: movement, completion: .contentProcessed({ error in
             if let error = error {
                 print("Send error \(error)")
             }
-            
         }))
         
         connection.receive(minimumIncompleteLength: 1, maximumLength: 100 ) { (content, context, isComplete, error) in
             if content != nil {
-                print("Got Connected")
-                print("UI update")
-            
+                print(content?.debugDescription ?? "Recieved Conformation")
             }
-            
         }
-    }
-    
-    func send(movement : Data) {
-                connection.send(content: movement, completion: .contentProcessed({ error in
-                    if let error = error {
-                        print("Batch Send error \(error)")
-                    }
-                }))
-    }
-    func sendLastMovement() {
-        let liftedMessage = "lifted".data(using: .utf8)
-        connection.send(content: liftedMessage, completion: .contentProcessed({ error in
-            if let error = error {
-                print("Send error \(error)")
-            }
-            
-        }))
-    }
-    func sendTapMovement(message: String) {
-        let liftedMessage = message.data(using: .utf8)
-        connection.send(content: liftedMessage, completion: .contentProcessed({ error in
-            if let error = error {
-                print("Send error \(error)")
-            }
-            
-        }))
     }
 }

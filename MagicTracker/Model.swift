@@ -60,17 +60,12 @@ class Model: ObservableObject {
         }
     }
     
-    
-    func stopBrowser(browser: NWBrowser) {
-        log("browser will stop")
-        browser.stateUpdateHandler = nil
-        browser.cancel()
+    func stopConnection() {
+        client = nil
     }
-    
     
     var isBrowserStarted: Bool {
         browserQ != nil
     }
-    
-    
+
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870EBA982B0E70B0003EA36B /* TouchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870EBA972B0E70B0003EA36B /* TouchInfo.swift */; };
 		8775C4C82B0AE40A0083DFC0 /* TwoFingerTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8775C4C72B0AE40A0083DFC0 /* TwoFingerTapView.swift */; };
 		87DA79962B098EF5005ABBF6 /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA79952B098EF5005ABBF6 /* DrawShape.swift */; };
 		931855332A9D0D440055157D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931855322A9D0D440055157D /* Model.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		870EBA972B0E70B0003EA36B /* TouchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchInfo.swift; sourceTree = "<group>"; };
 		8775C4C72B0AE40A0083DFC0 /* TwoFingerTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFingerTapView.swift; sourceTree = "<group>"; };
 		87DA79952B098EF5005ABBF6 /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
 		931855322A9D0D440055157D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				8775C4C72B0AE40A0083DFC0 /* TwoFingerTapView.swift */,
 				87DA79952B098EF5005ABBF6 /* DrawShape.swift */,
 				93A5284D2A9BFDB200BCEB38 /* Client.swift */,
+				870EBA972B0E70B0003EA36B /* TouchInfo.swift */,
 				931855322A9D0D440055157D /* Model.swift */,
 				93C9581D2A99456000876095 /* Assets.xcassets */,
 				93C9581F2A99456000876095 /* Preview Content */,
@@ -159,6 +162,7 @@
 				8775C4C82B0AE40A0083DFC0 /* TwoFingerTapView.swift in Sources */,
 				931855372A9D61A20055157D /* HomeView.swift in Sources */,
 				87DA79962B098EF5005ABBF6 /* DrawShape.swift in Sources */,
+				870EBA982B0E70B0003EA36B /* TouchInfo.swift in Sources */,
 				93C9581A2A99455F00876095 /* MagicTrackerApp.swift in Sources */,
 				931855332A9D0D440055157D /* Model.swift in Sources */,
 			);

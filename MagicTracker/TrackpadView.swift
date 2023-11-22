@@ -18,76 +18,47 @@ struct TrackpadView: View {
         
         
         ZStack {
-            GeometryReader { proxy in
+            if let client = model.client {
+                
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
                     .overlay (
                         TwoFingerTapView { gesture in
-                            print(gesture)
-                            print("Two Taps Detected")
-                            if let client = model.client {
-                                client.sendTapMovement(message: "rightClicked")
-                            }
+                            client.send(message: TouchInfo.rightTap.data)
                         }
                     )
                     .gesture(
                         
                         DragGesture()
                             .onChanged { value in
-                                self.addNewPoint(value)
-                                
-                                if let data = transformPoints(dragValue : value, environmentSize : proxy.size) {
-                                    if let client = model.client {
-                                        client.send(movement: data)
-                                    }
-                                }
-                                else {
-                                    print("Not Working")
-                                }
+                                points.append(value.location)
+                                client.send(message: TouchInfo.movement(value: value).data)
                             }
                             .onEnded { value in
-                                self.points = []
-                                if let client = model.client {
-                                    client.sendLastMovement()
+                                withAnimation {
+                                    self.points = []
                                 }
+                                client.send(message: TouchInfo.stoppedMovement.data)
                             }
                             .exclusively(
                                 before: TapGesture(count: 2).onEnded {
                                     print("clicked")
-                                    if let client = model.client {
-                                        client.sendTapMovement(message: "clicked")
-                                    }
+                                    client.send(message: TouchInfo.click.data )
                                 }.exclusively(
                                     before:TapGesture().onEnded {
-                                        print("tapped")
-                                        if let client = model.client {
-                                            client.sendTapMovement(message: "tapped")
-                                        }
+                                        client.send(message: TouchInfo.tap.data)
                                     } )
                             )
                     )
                 
                 
                 DrawShape(points: points)
-                    .stroke(lineWidth: 2) // here you put width of lines
+                    .stroke(lineWidth: 4) // here you put width of lines
                     .foregroundColor(.secondary)
             }
         }
         
     }
-    
-    private func addNewPoint(_ value: DragGesture.Value) {
-        // here you can make some calculations based on previous points
-        points.append(value.location)
-    }
-    private func transformPoints(dragValue value : DragGesture.Value, environmentSize size: CGSize) -> Data? {
-        let point = value.translation
-        
-        let data = "\(point.width),\(point.height)".data(using: .utf8)
-        
-        return data
-    }
-    
     
 }
 
